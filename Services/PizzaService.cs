@@ -19,27 +19,27 @@ public static class PizzaService
 
     public static Pizza? Get(int id) => Pizzas.FirstOrDefault(p => p.Id == id);
 
-    public static void Add(Pizza pizza)
+    public static void Add(Pizza Pizza)
     {
-        pizza.Id = nextId++;
-        Pizzas.Add(pizza);
+        Pizza.Id = nextId++;
+        Pizzas.Add(Pizza);
     }
 
     public static void Delete(int id)
     {
-        var pizza = Get(id);
-        if(pizza is null)
+        var Pizza = Get(id);
+        if(Pizza is null)
             return;
 
-        Pizzas.Remove(pizza);
+        Pizzas.Remove(Pizza);
     }
 
-    public static void Update(Pizza pizza)
+    public static void Update(Pizza Pizza)
     {
-        var index = Pizzas.FindIndex(p => p.Id == pizza.Id);
+        var index = Pizzas.FindIndex(p => p.Id == Pizza.Id);
         if(index == -1)
             return;
 
-        Pizzas[index] = pizza;
+        Pizzas[index] = Pizza;
     }
 }
